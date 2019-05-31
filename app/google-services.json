@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1033734987057",
+    "firebase_url": "https://projectpace-d911a.firebaseio.com",
+    "project_id": "projectpace-d911a",
+    "storage_bucket": "projectpace-d911a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033734987057:android:589ab3bcd52c9cad",
+        "android_client_info": {
+          "package_name": "edu.washington.info448.pace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1033734987057-6d4ta00642n962ol5h3ahpagkmvs50rl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTs9RqZz1Wne3kWUSF4FExMW2UA87gdEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1033734987057-6d4ta00642n962ol5h3ahpagkmvs50rl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
