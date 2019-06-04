@@ -1,5 +1,6 @@
 package edu.washington.info448.pace
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity() {
 
         adapter.onPersonClickedListener = { position, name ->
             Toast.makeText(this, "$name clicked!", Toast.LENGTH_SHORT).show()
+            val i = Intent(this, ResourcesActivity::class.java)
+            when(name){
+                "Resources" -> startActivity(i)
+            }
         }
 
     }

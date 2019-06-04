@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".AddResourceFragment">
+
+    <RelativeLayout
+           android:layout_width="match_parent"
+           android:padding="20dp"
+           android:layout_height="match_parent">
+
+        <android.support.design.widget.TextInputLayout
+                android:id="@+id/desc_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter a title"
+                android:layout_marginTop="25dp">
+
+
+            <EditText
+                android:id="@+id/resource_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+                android:id="@+id/link_input_layout"
+                android:layout_width="match_parent"
+                android:layout_below="@id/desc_input_layout"
+                android:layout_height="wrap_content"
+                android:hint="Enter resource link"
+                android:layout_marginTop="25dp">
+
+
+            <EditText
+                    android:id="@+id/resource_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"/>
+
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+                android:id="@+id/resource_error"
+                android:layout_below="@id/link_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"/>
+
+        <Button
+                android:id="@+id/add_my_resource_btn"
+                android:text="@string/add_res"
+                android:layout_below="@id/resource_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="100dp"/>
+
+
+    </RelativeLayout>
+
+
+
+
+
+</FrameLayout>
