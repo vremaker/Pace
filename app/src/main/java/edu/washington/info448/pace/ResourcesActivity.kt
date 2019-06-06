@@ -1,13 +1,10 @@
 package edu.washington.info448.pace
 
-import android.app.PendingIntent.getActivity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -16,8 +13,6 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_resources.*
-import java.text.SimpleDateFormat
-import java.util.*
 import android.content.Intent
 import android.net.Uri
 
@@ -110,7 +105,7 @@ class ResourcesActivity : AppCompatActivity(){
 
     inner class ItemViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
 
-        var title: TextView = itemView!!.findViewById(R.id.titleDis)
+        var title: TextView = itemView!!.findViewById(R.id.course)
         internal var link: TextView = itemView!!.findViewById(R.id.linkDis)
 
         var onClickedListener: ((position: Int, link: String) -> Unit)? = null
@@ -120,14 +115,5 @@ class ResourcesActivity : AppCompatActivity(){
                     onClickedListener?.invoke(position, link.text.toString())
                 }
             }
-
-
     }
-
-
-
-
-
-
-
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".feedback_search">
+    <Button
+            android:text="Search For Feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/searchRes" android:layout_gravity="center"
+            android:layout_marginTop="70dp"/>
+    <TextView
+            android:text="Search a professor's name to view the feedback they have been given. "
+            android:layout_width="386dp"
+            android:layout_height="wrap_content" android:id="@+id/mess" android:layout_gravity="center"
+            android:layout_marginBottom="70dp" android:textSize="24sp"/>
+    <EditText
+            android:layout_width="319dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editText" android:layout_gravity="center" android:hint="Search Professor By Last Name"/>
+</FrameLayout>

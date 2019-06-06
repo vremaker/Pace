@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".feedback_give">
+    <EditText
+            android:layout_width="365dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/courseId" android:hint="Course ID"
+            android:layout_gravity="center|center_horizontal" android:layout_marginBottom="160dp"/>
+    <EditText
+            android:layout_width="365dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/prof" android:hint="Professor's Last Name"
+            android:layout_gravity="center|center_horizontal" android:layout_marginBottom="110dp"/>
+    <EditText
+            android:layout_width="365dp"
+            android:layout_height="199dp"
+            android:inputType="textMultiLine"
+            android:gravity="start|top"
+            android:ems="10"
+            android:id="@+id/feedback" android:hint="What feedback do you have?"
+            android:layout_gravity="center|center_horizontal" android:layout_marginTop="20dp"/>
+    <Button
+            android:text="Submit"
+            android:layout_width="232dp"
+            android:layout_height="wrap_content" android:id="@+id/submit"
+            android:layout_gravity="bottom|center_horizontal" android:layout_marginBottom="20dp"/>
+</FrameLayout>

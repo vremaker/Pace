@@ -4,7 +4,6 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -24,8 +23,10 @@ class MainActivity : AppCompatActivity() {
         adapter.onPersonClickedListener = { position, name ->
             Toast.makeText(this, "$name clicked!", Toast.LENGTH_SHORT).show()
             val i = Intent(this, ResourcesActivity::class.java)
+            val f = Intent(this, feedback_activity::class.java)
             when(name){
                 "Resources" -> startActivity(i)
+                "Professor Feedback" ->  startActivity(f)
             }
         }
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".feedback_decide">
+    <TextView
+            android:text="Feedback is crucial to getting better! Please Choose a feedback option. "
+            android:layout_width="398dp"
+            android:layout_height="153dp" android:id="@+id/about" android:textStyle="bold" android:textSize="30sp"
+            android:gravity="center" android:layout_gravity="center_horizontal"/>
+    <Button
+            android:text="View Professor Feedback"
+            android:layout_width="393dp"
+            android:layout_height="wrap_content" android:id="@+id/viewBtn" android:layout_gravity="center"
+            android:bufferType="spannable" android:layout_marginTop="50dp"/>
+    <Button
+            android:text="Go Home"
+            android:layout_width="393dp"
+            android:layout_height="wrap_content" android:id="@+id/goHomeYo" android:layout_gravity="center"
+            android:bufferType="spannable" android:layout_marginTop="100dp"/>
+    <Button
+            android:text="Give Feedback To a Professor"
+            android:layout_width="393dp"
+            android:layout_height="wrap_content" android:id="@+id/giveBtn" android:layout_gravity="center"/>
+</FrameLayout>
