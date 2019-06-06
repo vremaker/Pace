@@ -8,10 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.fragment_add_resource.*
 
 class feedback_give : Fragment() {
-
     private var callback: submitListener? = null
+    private val fb = FirebaseDatabase.getInstance().reference
     interface submitListener {
         fun returnHome()
     }
@@ -40,12 +44,26 @@ class feedback_give : Fragment() {
         // Inflate the layout for this fragment
         var rootView = inflater.inflate(R.layout.fragment_feedback_give, container, false)
         arguments?.let {
+            val prof = rootView.findViewById<EditText>(R.id.prof)
+            val feed = rootView.findViewById<EditText>(R.id.feedback)
+            val course = rootView.findViewById<EditText>(R.id.courseId)
             val button = rootView.findViewById<Button>(R.id.submit)
             button.setOnClickListener() {
-                //if exists show, otherwise toast that there is missing
-                callback!!.returnHome()
+                if(prof.text.length > 0 && feed.text.length > 0 && course.text.length > 0) {
+                    dealWithDataBase(prof.text.toString(), feed.text.toString(), course.text.toString())
+                    callback!!.returnHome()
+                } else {
+                    Toast.makeText(this.context, "You need to fill out all fields to submit feedback", Toast.LENGTH_SHORT).show()
+                }
             }
         }
         return rootView
+    }
+
+    fun dealWithDataBase(prof:String, feed:String, course: String) {
+        val course = course
+        val feed = feed
+        val data = mapOf("course" to course, "feed" to feed)
+        fb.child(prof).push().setValue(data)
     }
 }
