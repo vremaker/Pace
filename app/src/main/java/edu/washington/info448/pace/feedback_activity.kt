@@ -23,6 +23,7 @@ import android.net.Uri
 import android.os.PersistableBundle
 
 
+
 /**
  * WHEN BACK BUTTON PRESSED ON MAIN DECIDER MAKE SURE IT GOES BACK TO MAIN MENU
  */
@@ -43,16 +44,15 @@ class feedback_activity : AppCompatActivity(), feedback_decide.giveFeedListener,
         setContentView(R.layout.feedback_activity)
     }
 
-    override fun viewFeedback() {
-        val showFeed = feedback_view.newInstance()
-        supportFragmentManager.beginTransaction().run {
-            replace(R.id.fragHere, showFeed, "show professor feedback result ")
-            addToBackStack(null)
-            commit()
-        }
+    override fun viewFeedback(prof:String) {
+        val intent = Intent(this, feedBackViewActivity::class.java)
+        intent.putExtra("prof", prof)
+        startActivity(intent)
+
     }
 
     override fun getFeed() {
+
         val getFeed = feedback_search.newInstance()
         supportFragmentManager.beginTransaction().run {
             replace(R.id.fragHere, getFeed, "get to the search bar for feedback")

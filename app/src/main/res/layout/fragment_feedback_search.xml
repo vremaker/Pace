@@ -19,5 +19,5 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editText" android:layout_gravity="center" android:hint="Search Professor By Last Name"/>
+            android:id="@+id/searchName" android:layout_gravity="center" android:hint="Search Professor By Last Name"/>
 </FrameLayout>

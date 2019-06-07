@@ -18,6 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".feedBackViewActivity"></activity>
         <activity android:name=".feedback_activity" android:configChanges="keyboardHidden|orientation|screenSize"></activity>
     </application>
 

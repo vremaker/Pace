@@ -11,7 +11,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.fragment_add_resource.*
 
 class feedback_give : Fragment() {
     private var callback: submitListener? = null
@@ -61,9 +60,9 @@ class feedback_give : Fragment() {
     }
 
     fun dealWithDataBase(prof:String, feed:String, course: String) {
-        val course = course
-        val feed = feed
+        val course = course.trim()
+        val feed = feed.trim()
         val data = mapOf("course" to course, "feed" to feed)
-        fb.child(prof).push().setValue(data)
+        fb.child("prof").child(prof.trim()).push().setValue(data)
     }
 }
