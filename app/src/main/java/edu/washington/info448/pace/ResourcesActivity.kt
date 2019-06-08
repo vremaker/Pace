@@ -27,15 +27,15 @@ class ResourcesActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resources)
-
-        ref = FirebaseDatabase.getInstance().reference.child("subject")
+        val classId = intent.getStringExtra("CLASS")
+        ref = FirebaseDatabase.getInstance().reference.child("classes/${classId}/subject")
         myRV.layoutManager = LinearLayoutManager(this)
 
         loadData()
 
         fab_add.setOnClickListener {
             var priorInstance = supportFragmentManager.findFragmentByTag("dialog")
-            val addResource = AddResourceFragment.newInstance()
+            val addResource = AddResourceFragment.newInstance(classId)
             val ft = supportFragmentManager.beginTransaction()
             if(priorInstance != null){
                 ft.remove(priorInstance)
@@ -78,7 +78,6 @@ class ResourcesActivity : AppCompatActivity(){
                     override fun onDataChange(p0: DataSnapshot) {
                         item.title.setText("Title: ${model.desc}")
                         item.link.setText(model.link)
-
                     }
                 })
 
@@ -96,11 +95,8 @@ class ResourcesActivity : AppCompatActivity(){
 
             }
         }
-
         myRV.adapter = myfirebaseRecyclerViewAdapter
         myfirebaseRecyclerViewAdapter.startListening()
-
-
     }
 
     inner class ItemViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
@@ -110,10 +106,10 @@ class ResourcesActivity : AppCompatActivity(){
 
         var onClickedListener: ((position: Int, link: String) -> Unit)? = null
 
-            fun bindView(position: Int){
-                itemView.setOnClickListener{
-                    onClickedListener?.invoke(position, link.text.toString())
-                }
+        fun bindView(position: Int){
+            itemView.setOnClickListener{
+                onClickedListener?.invoke(position, link.text.toString())
             }
+        }
     }
 }

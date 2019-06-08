@@ -16,6 +16,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.URLUtil
 import android.widget.Toast
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_add_resource.*
 import java.text.SimpleDateFormat
@@ -28,12 +29,17 @@ class AddResourceFragment : DialogFragment() {
         fun onCancelDialog(cancelDialog: Unit)
     }
 
-    companion object{
-        fun newInstance(): AddResourceFragment{
-            return AddResourceFragment()
+    companion object {
+        fun newInstance(classID: String): AddResourceFragment {
+            return AddResourceFragment().apply {
+                arguments = Bundle().apply {
+                    putString("CLASS", classID)
+                }
+            }
         }
     }
-    private val fb = FirebaseDatabase.getInstance().reference
+
+    private lateinit var fb : DatabaseReference
     private val sdf = SimpleDateFormat("MM/dd/yyyy")
     private val currentDate = sdf.format(Date())
 
@@ -42,7 +48,9 @@ class AddResourceFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-       val rootView = inflater.inflate(R.layout.fragment_add_resource, container, false)
+        val classID = arguments!!.getString("CLASS")// get the class id i.e. info448
+        fb = FirebaseDatabase.getInstance().reference.child("classes/${classID as String}")
+        val rootView = inflater.inflate(R.layout.fragment_add_resource, container, false)
         return rootView
     }
 
@@ -61,12 +69,11 @@ class AddResourceFragment : DialogFragment() {
     }
 
 
-
-    fun validationCheck(){
-        resource_desc.addTextChangedListener(object: TextWatcher{
+    fun validationCheck() {
+        resource_desc.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 val userInput = resource_desc.text.toString()
-                if(userInput.isNotEmpty()){
+                if (userInput.isNotEmpty()) {
                     resource_link.isEnabled = true
                 }
             }
@@ -77,20 +84,20 @@ class AddResourceFragment : DialogFragment() {
 
         })
 
-        resource_link.addTextChangedListener(object: TextWatcher{
+        resource_link.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable?) {
 
                 val userInput = resource_link.text.toString()
 
-                if (userInput.isNotEmpty()){
+                if (userInput.isNotEmpty()) {
                     val check = URLUtil.isValidUrl(userInput)
-                   if(check){
-                       resource_error.setText("")
-                       add_my_resource_btn.isEnabled = true
-                   } else{
-                       resource_error.setText("Required Format: https://")
-                   }
+                    if (check) {
+                        resource_error.setText("")
+                        add_my_resource_btn.isEnabled = true
+                    } else {
+                        resource_error.setText("Required Format: https://")
+                    }
                 }
             }
 
@@ -101,13 +108,12 @@ class AddResourceFragment : DialogFragment() {
         })
     }
 
-    fun addToDatabase(){
+    fun addToDatabase() {
         val desc = resource_desc.text.toString()
         val link = resource_link.text.toString()
         val data = mapOf("desc" to desc, "link" to link)
         fb.child("subject").push().setValue(data)
     }
-
 
 
 }
