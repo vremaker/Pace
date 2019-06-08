@@ -37,7 +37,7 @@ class ClassActivity : AppCompatActivity() {
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClassViewHolder {
                 val itemView =
-                    LayoutInflater.from(this@ClassActivity).inflate(R.layout.main_resource_bucket, parent, false)
+                    LayoutInflater.from(this@ClassActivity).inflate(R.layout.item, parent, false)
                 return ClassViewHolder(itemView)
             }
 
@@ -52,8 +52,8 @@ class ClassActivity : AppCompatActivity() {
                     override fun onCancelled(p0: DatabaseError) {}
 
                     override fun onDataChange(p0: DataSnapshot) {
-                        item.title.setText(model.name)
-                        item.link.setText("")
+                        item.tvName.setText(model.name)
+//                        item.link.setText("")
                     }
                 })
 
@@ -78,15 +78,12 @@ class ClassActivity : AppCompatActivity() {
     }
 
     inner class ClassViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
-
-        var title: TextView = itemView!!.findViewById(R.id.course)
-        internal var link: TextView = itemView!!.findViewById(R.id.linkDis)
-
+        internal var tvName: TextView = itemView!!.findViewById(R.id.tvName)
         var onClickedListener: ((position: Int, link: String) -> Unit)? = null
 
         fun bindView(position: Int) {
             itemView.setOnClickListener {
-                onClickedListener?.invoke(position, link.text.toString())
+                onClickedListener?.invoke(position, tvName.text.toString())
             }
         }
     }
