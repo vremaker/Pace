@@ -32,11 +32,13 @@ class MainActivity : AppCompatActivity() {
             val i = Intent(this, ResourcesActivity::class.java)
             val f = Intent(this, feedback_activity::class.java)
             val j = Intent(this, ClassActivity::class.java)
+            val g = Intent(this, group_activity::class.java)
             j.putExtra("ACTION", name)
             when (name) {
 //                "Resources" -> startActivity(i)
                 "Professor Feedback" -> startActivity(f)
                 "Resources" -> startActivity(j)
+                "Find A Group" ->  startActivity(g)
             }
         }
     }

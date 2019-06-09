@@ -1,6 +1,7 @@
 <resources>
     <string name="btn_res">RESOURCES</string>
     <string name="add_res">Add Resource</string>
+    <string name="add_name">Add Me Into Group  </string>
     <string name="add_date">Date</string>
     <string name="app_name">Pace</string>
 
