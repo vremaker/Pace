@@ -13,6 +13,8 @@
             android:theme="@style/AppTheme">
         <activity android:name=".ClassActivity">
         </activity>
+        <activity android:name=".AskQuestionActivity">
+        </activity>
         <activity android:name=".ResourcesActivity">
         </activity>
         <activity android:name=".group_activity"></activity>

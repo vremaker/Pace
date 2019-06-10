@@ -67,6 +67,11 @@ class ClassActivity : AppCompatActivity() {
                             intent.putExtra("CLASS", itemId)
                             startActivity(intent)
                         }
+                        "Ask A Question" -> {
+                            intent = Intent(this@ClassActivity, AskQuestionActivity::class.java)
+                            intent.putExtra("CLASS", itemId)
+                            startActivity(intent)
+                        }
                     }
                 })
 
