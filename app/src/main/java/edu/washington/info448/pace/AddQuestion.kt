@@ -3,13 +3,17 @@ package edu.washington.info448.pace
 
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
+import android.text.Editable
+import android.text.TextWatcher
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.URLUtil
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.add_question.*
+import kotlinx.android.synthetic.main.fragment_add_resource.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -47,10 +51,32 @@ class AddQuestion : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        submit.isEnabled = false
+        validationCheck()
+
+
         submit.setOnClickListener {
             addToDatabase()
             dismiss()
         }
+    }
+
+    fun validationCheck() {
+        question_desc.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                val userInput = question_desc.text.toString()
+                if (userInput.isNotEmpty()) {
+                    submit.isEnabled = true
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+        })
+
+
     }
 
 
