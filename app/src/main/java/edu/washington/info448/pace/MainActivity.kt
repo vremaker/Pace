@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
                 "Professor Feedback" -> startActivity(f)
                 "Resources" -> startActivity(j)
                 "Find A Group" ->  startActivity(g)
+                "Ask A Question" -> startActivity(j)
             }
         }
     }
