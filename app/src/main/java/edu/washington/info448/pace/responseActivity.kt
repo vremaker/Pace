@@ -37,7 +37,7 @@ class responseActivity : AppCompatActivity(){
 
         fab_add.setOnClickListener {
             var priorInstance = supportFragmentManager.findFragmentByTag("dialog")
-            val addPost = AddPost.newInstance(classId)
+            val addPost = AddResponse.newInstance(classId, quest)
             val ft = supportFragmentManager.beginTransaction()
             if(priorInstance != null){
                 ft.remove(priorInstance)

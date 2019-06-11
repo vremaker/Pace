@@ -42,6 +42,12 @@ class feedback_activity : AppCompatActivity(), feedback_decide.giveFeedListener,
             commit()
         }
         setContentView(R.layout.feedback_activity)
+
+    }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        var intent = Intent(this@feedback_activity, MainActivity::class.java)
+        startActivity(intent)
     }
 
     override fun viewFeedback(prof:String) {
