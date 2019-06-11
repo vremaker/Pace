@@ -54,7 +54,7 @@ class AddResponse : DialogFragment() {
         // Inflate the layout for this fragment
         val classID = arguments!!.getString("CLASS")
         val quest = arguments!!.getString("quest")// get the class id i.e. info448
-        fb = FirebaseDatabase.getInstance().reference.child("classes/${classID as String}/disucss/${quest}")
+        fb = FirebaseDatabase.getInstance().reference.child("classes/${classID as String}/discuss/${quest}")
         val rootView = inflater.inflate(R.layout.fragment_add_discuss, container, false)
         return rootView
     }
