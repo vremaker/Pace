@@ -19,11 +19,11 @@ import android.util.Log
 
 
 class DiscussionActivity : AppCompatActivity(){
-    interface RecyclerViewClickListener{
-        fun onClick(view: View, position: Int)
-    }
+
 
     lateinit var ref: DatabaseReference
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,13 +101,14 @@ class DiscussionActivity : AppCompatActivity(){
     inner class ItemViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
 
         var title: TextView = itemView!!.findViewById(R.id.course)
-        internal var link: TextView = itemView!!.findViewById(R.id.linkDis)
+        var link: TextView = itemView!!.findViewById(R.id.linkDis)
 
         var onClickedListener: ((position: Int, link: String) -> Unit)? = null
 
         fun bindView(position: Int){
             itemView.setOnClickListener{
                 onClickedListener?.invoke(position, link.text.toString())
+
             }
         }
     }
