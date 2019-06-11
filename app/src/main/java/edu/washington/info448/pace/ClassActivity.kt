@@ -72,6 +72,11 @@ class ClassActivity : AppCompatActivity() {
                             intent.putExtra("CLASS", itemId)
                             startActivity(intent)
                         }
+                        "Class Discussion Board" -> {
+                            intent = Intent(this@ClassActivity, responseActivity::class.java)
+                            intent.putExtra("CLASS", itemId)
+                            startActivity(intent)
+                        }
                     }
                 })
 

@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
                 "Resources" -> startActivity(j)
                 "Find A Group" ->  startActivity(g)
                 "Ask A Question" -> startActivity(j)
+                "Class Discussion Board" -> startActivity(j)
             }
         }
     }

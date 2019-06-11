@@ -25,6 +25,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".DiscussionActivity">
+
+        </activity>
+        <activity android:name=".responseActivity"></activity>
         <activity android:name=".feedBackViewActivity"/>
         <activity
                 android:name=".feedback_activity"
