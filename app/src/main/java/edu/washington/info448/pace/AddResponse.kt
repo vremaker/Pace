@@ -33,7 +33,7 @@ class AddResponse : DialogFragment() {
 
     companion object {
         fun newInstance(classID: String, questId: String): AddResponse {
-            return newInstance(classID, questId).apply {
+            return AddResponse().apply {
                 arguments = Bundle().apply {
                     putString("CLASS", classID)
                     putString("quest", questId)
