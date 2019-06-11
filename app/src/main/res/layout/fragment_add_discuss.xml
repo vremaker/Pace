@@ -14,7 +14,7 @@
                 android:id="@+id/desc_input_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Post header"
+                android:hint="Name or Anonymous"
                 android:layout_marginTop="25dp">
 
 

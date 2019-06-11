@@ -69,12 +69,9 @@ class responseActivity : AppCompatActivity(){
 
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-
                 val itemView = LayoutInflater.from(this@responseActivity).inflate(R.layout.main_discussion_bucket,parent,false)
                 return ItemViewHolder(itemView)
             }
-
-
 
             override fun onBindViewHolder(item: ItemViewHolder, position: Int, model: ModelDisc) {
                 //get Firebase position
@@ -93,9 +90,9 @@ class responseActivity : AppCompatActivity(){
                     }
                 })
 
-                item.itemView.setOnClickListener(View.OnClickListener {
-
-                })
+//                item.itemView.setOnClickListener(View.OnClickListener {
+//
+//                })
 
 
             }
