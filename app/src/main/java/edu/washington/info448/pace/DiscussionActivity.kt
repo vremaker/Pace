@@ -82,6 +82,9 @@ class DiscussionActivity : AppCompatActivity(){
                 item.itemView.setOnClickListener(View.OnClickListener {
                     val intent = Intent(this@DiscussionActivity, responseActivity::class.java)
                     intent.putExtra("quest", itemId)
+                    intent.putExtra("subject", item.title.text)
+                    intent.putExtra("question", item.link.text)
+                    intent.putExtra("date", item.date.text)
                     intent.putExtra("CLASS", classId)
                     startActivity(intent)
 

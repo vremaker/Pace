@@ -27,7 +27,15 @@ class responseActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_resources)
+        setContentView(R.layout.activity_responses)
+
+        val topic = findViewById<TextView>(R.id.questTopic)
+        val sub = findViewById<TextView>(R.id.questText)
+        val date = findViewById<TextView>(R.id.datePrev)
+        topic.setText(intent.getStringExtra("subject"))
+        sub.setText(intent.getStringExtra("question"))
+        date.setText(intent.getStringExtra("date"))
+
         val classId = intent.getStringExtra("CLASS")
         val quest = intent.getStringExtra("quest")
         ref = FirebaseDatabase.getInstance().reference.child("classes/${classId}/discuss/${quest}/responses")
@@ -51,7 +59,7 @@ class responseActivity : AppCompatActivity(){
 
 
     fun loadData(){
-        var onClickedListener: ((position: Int, name: String) -> Unit)? = null
+//        var onClickedListener: ((position: Int, name: String) -> Unit)? = null
 
         val option = FirebaseRecyclerOptions.Builder<ModelDisc>()
             .setQuery(ref, ModelDisc::class.java)
@@ -62,7 +70,7 @@ class responseActivity : AppCompatActivity(){
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
 
-                val itemView = LayoutInflater.from(this@responseActivity).inflate(R.layout.main_resource_bucket,parent,false)
+                val itemView = LayoutInflater.from(this@responseActivity).inflate(R.layout.main_discussion_bucket,parent,false)
                 return ItemViewHolder(itemView)
             }
 
@@ -80,6 +88,8 @@ class responseActivity : AppCompatActivity(){
                     override fun onDataChange(p0: DataSnapshot) {
                         item.title.setText("${model.header}")
                         item.link.setText(model.content)
+                        item.date.setText("Posted on: ${model.date}")
+
                     }
                 })
 
@@ -98,6 +108,7 @@ class responseActivity : AppCompatActivity(){
 
         var title: TextView = itemView!!.findViewById(R.id.course)
         internal var link: TextView = itemView!!.findViewById(R.id.linkDis)
+        var date: TextView = itemView!!.findViewById(R.id.date)
 
         var onClickedListener: ((position: Int, link: String) -> Unit)? = null
 

@@ -44,7 +44,7 @@ class AddResponse : DialogFragment() {
     }
 
     private lateinit var fb : DatabaseReference
-    private val sdf = SimpleDateFormat("MM/dd/yyyy")
+    private val sdf = SimpleDateFormat("MM/dd/yyyy hh:mm")
     private val currentDate = sdf.format(Date())
 
     override fun onCreateView(
@@ -73,7 +73,7 @@ class AddResponse : DialogFragment() {
     fun addToDatabase() {
         val header = header.text.toString()
         val content = body.text.toString()
-        val data = mapOf("header" to header, "content" to content )
+        val data = mapOf("header" to header, "content" to content, "date" to currentDate )
         fb.child("responses").push().setValue(data)
     }
 
