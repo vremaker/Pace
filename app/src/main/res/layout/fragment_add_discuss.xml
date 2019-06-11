@@ -53,7 +53,7 @@
 
         <Button
                 android:id="@+id/add_my_resource_btn"
-                android:text="@string/add_res"
+                android:text="Post Question"
                 android:layout_below="@id/resource_error"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

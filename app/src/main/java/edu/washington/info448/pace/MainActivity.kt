@@ -9,10 +9,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-
-    private lateinit var database: DatabaseReference
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,7 +31,6 @@ class MainActivity : AppCompatActivity() {
             val g = Intent(this, group_activity::class.java)
             j.putExtra("ACTION", name)
             when (name) {
-//                "Resources" -> startActivity(i)
                 "Professor Feedback" -> startActivity(f)
                 "Resources" -> startActivity(j)
                 "Find A Group" ->  startActivity(g)

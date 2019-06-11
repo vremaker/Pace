@@ -24,7 +24,6 @@ import kotlinx.android.synthetic.main.fragment_add_resource.add_my_resource_btn
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class AddPost : DialogFragment() {
     interface DialogListener {
         fun onSelectDoneDialog(inputText: String, inputTag: String)
@@ -42,7 +41,7 @@ class AddPost : DialogFragment() {
     }
 
     private lateinit var fb : DatabaseReference
-    private val sdf = SimpleDateFormat("MM/dd/yyyy")
+    private val sdf = SimpleDateFormat("MM/dd/yyyy hh:mm")
     private val currentDate = sdf.format(Date())
 
     override fun onCreateView(
@@ -70,10 +69,10 @@ class AddPost : DialogFragment() {
     fun addToDatabase() {
         val header = header.text.toString()
         val content = body.text.toString()
-        val data = mapOf("header" to header, "content" to content )
+        val time = currentDate
+        val data = mapOf("header" to header, "content" to content, "date" to time)
         fb.child("discuss").push().setValue(data)
     }
-
 
 }
 

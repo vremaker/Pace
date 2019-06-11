@@ -1,0 +1,48 @@
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/CardView"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        card_view:cardCornerRadius="5dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:baselineAligned="false"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+
+        <TextView
+                android:id="@+id/course"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Title"
+                android:textColor="#080808"
+                android:textSize="26sp"
+                android:textStyle="bold"/>
+
+        <TextView
+                android:id="@+id/linkDis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Link"
+                android:textColor="#080808"
+                android:textSize="22sp"
+                />
+        <TextView
+                android:text="Posted on: "
+                android:layout_width="389dp"
+                android:layout_height="wrap_content" android:id="@+id/date"/>
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

@@ -60,25 +60,22 @@ class DiscussionActivity : AppCompatActivity(){
 
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-
-                val itemView = LayoutInflater.from(this@DiscussionActivity).inflate(R.layout.main_resource_bucket,parent,false)
+                val itemView = LayoutInflater.from(this@DiscussionActivity).inflate(R.layout.main_discussion_bucket,parent,false)
                 return ItemViewHolder(itemView)
             }
-
 
 
             override fun onBindViewHolder(item: ItemViewHolder, position: Int, model: ModelDisc) {
                 //get Firebase position
                 val itemId = getRef(position).key.toString()
-
                 item.bindView(position)
-
                 ref.child(itemId).addValueEventListener(object: ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {}
 
                     override fun onDataChange(p0: DataSnapshot) {
                         item.title.setText(model.header)
                         item.link.setText(model.content)
+                        item.date.setText("Posted on: ${model.date}")
                     }
                 })
 
@@ -87,7 +84,6 @@ class DiscussionActivity : AppCompatActivity(){
                     intent.putExtra("quest", itemId)
                     intent.putExtra("CLASS", classId)
                     startActivity(intent)
-                //Toast.makeText(this@DiscussionActivity, itemId.toString(), Toast.LENGTH_SHORT).show()
 
                 })
 
@@ -102,6 +98,7 @@ class DiscussionActivity : AppCompatActivity(){
 
         var title: TextView = itemView!!.findViewById(R.id.course)
         var link: TextView = itemView!!.findViewById(R.id.linkDis)
+        var date: TextView = itemView!!.findViewById(R.id.date)
 
         var onClickedListener: ((position: Int, link: String) -> Unit)? = null
 
