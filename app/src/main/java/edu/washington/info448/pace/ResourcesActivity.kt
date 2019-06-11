@@ -17,7 +17,7 @@ import android.content.Intent
 import android.net.Uri
 
 
-class ResourcesActivity : AppCompatActivity(){
+class ResourcesActivity : AppCompatActivity() {
     interface RecyclerViewClickListener{
         fun onClick(view: View, position: Int)
     }

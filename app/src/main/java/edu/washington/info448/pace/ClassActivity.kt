@@ -14,6 +14,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_class.*
+import kotlinx.android.synthetic.main.activity_class.*
 
 class ClassActivity : AppCompatActivity() {
 
@@ -29,6 +30,17 @@ class ClassActivity : AppCompatActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
         getClasses(action)
 
+        addClass.setOnClickListener {
+            var priorInstance = supportFragmentManager.findFragmentByTag("dialog")
+            val addClassFragment = AddClassFragment.newInstance()
+            val ft = supportFragmentManager.beginTransaction()
+            if(priorInstance != null){
+                ft.remove(priorInstance)
+            }
+            ft.addToBackStack(null)
+            addClassFragment.show(ft, "dialog")
+
+        }
     }
 
     fun getClasses(action: String) {
@@ -92,9 +104,7 @@ class ClassActivity : AppCompatActivity() {
         var onClickedListener: ((position: Int, link: String) -> Unit)? = null
 
         fun bindView(position: Int) {
-            itemView.setOnClickListener {
-                onClickedListener?.invoke(position, tvName.text.toString())
-            }
+
         }
     }
 }
