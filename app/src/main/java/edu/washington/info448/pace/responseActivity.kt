@@ -30,10 +30,10 @@ class responseActivity : AppCompatActivity(){
         setContentView(R.layout.activity_resources)
         val classId = intent.getStringExtra("CLASS")
         val quest = intent.getStringExtra("quest")
-        ref = FirebaseDatabase.getInstance().reference.child("classes/${classId}/discuss/${quest}")
+        ref = FirebaseDatabase.getInstance().reference.child("classes/${classId}/discuss/${quest}/responses")
         myRV.layoutManager = LinearLayoutManager(this)
 
-       // loadData()
+       loadData()
 
         fab_add.setOnClickListener {
             var priorInstance = supportFragmentManager.findFragmentByTag("dialog")
@@ -50,7 +50,7 @@ class responseActivity : AppCompatActivity(){
 
 
 
-    /*fun loadData(){
+    fun loadData(){
         var onClickedListener: ((position: Int, name: String) -> Unit)? = null
 
         val option = FirebaseRecyclerOptions.Builder<ModelDisc>()
@@ -106,5 +106,5 @@ class responseActivity : AppCompatActivity(){
                 onClickedListener?.invoke(position, link.text.toString())
             }
         }
-    }*/
+    }
 }
